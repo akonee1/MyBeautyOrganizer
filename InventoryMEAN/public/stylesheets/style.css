@@ -1,0 +1,116 @@
+p {
+
+    font-size: 12px;
+
+}
+
+h1{     
+    
+	color:black;
+	
+}
+
+body{
+	
+	background-color:gray;
+	
+}
+
+ #header {
+
+    font-family: "Courier New";
+    background-color:black;
+    color:white;
+	font-size: 44px;
+    text-align:center;
+    padding-top: 40px;
+    height:120px;
+	padding-left: 140px;
+}
+
+ #disp {
+    
+	background-color:#4C8091;
+	width:1228px;
+    height:700px;
+	float:left;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left:0px;
+    border: 1px solid red;
+    margin-left: 0px;
+    text-align:center;
+	margin-right: 0px;
+
+	}
+
+#nav {
+
+    text-align:center;
+    line-height:30px;
+    width:121px;
+	background-color:#eeeeee;
+    height:700px;
+	padding-left: 0px;
+	padding-right: 0px;
+    margin-left: 0px; 
+    margin-right: 0px;
+    border: 1px solid red;
+    float:left;
+
+}
+
+#rNav {
+
+    text-align:center;
+    line-height:30px;
+    width:80px;
+	background-color:#eeeeee;
+    height:500px;
+	padding-right: 0px;
+    margin-right: 60px; 
+    border: 1px solid red;
+    float:right;
+}
+
+#footer {
+    
+	background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	
+    height:30px;
+
+}
+
+.firstname {
+	
+	width: 700px; 
+	height: 120px;
+	margin-top: 30px;
+}
+
+
+.button1 { 
+
+    width:100px;   
+    text-align:center;
+ 
+ }
+
+.button2 { 
+
+    width:100px; 
+    text-align:center;
+  
+  }
+ 
+ .butt {
+	background-color: #4CAF50;
+ }
+ 
+ a:hover { 
+     background-color: yellow;
+ } 
