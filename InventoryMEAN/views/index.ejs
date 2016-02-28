@@ -15,22 +15,54 @@
   
 </head>
 
- <body>
+ <body ng-app="Inventory" ng-controller="MainCtrl" >
   
-  <h1>INVENTORY APP</h1>
   
+    <h1>INVENTORY APP</h1>
+    
+	<div>
+              <ui-view></ui-view>
+    </div>
+
+  
+  
+ 
+ <script type="text/ng-template" id="/home.html">
   <form>
   
   First name:<br>
   <input type="text" name="firstname"><br>
   Last name:<br>
-  <input type="text" name="lastname">
-  <input type="submit" value="Login">
+  <input type="text" name="lastname"><br>
+  <br><input type="submit" value="Login"><br>
+  <br><button ng-click="go('/sign')">Sign In</button><br>
+  <br><a href="#/home">Go Home</a><br>
+  <a href="#/sign">Go to About</a>
+  <button ng-click="go('/sign')">sign</button>
+
+
+ </form> 
+ </script>
   
-  </form> 
-   
-   <br>
-   <button type="button">Click Me!</button> 
+  
+  <script type="text/ng-template" id="/sign.html">
+  
+    Username:<br>
+     <input type="text" name="username"><br>
+    Password:<br>
+    <input type="text" name="password"><br>
+    Password:<br>
+	 <input type="text" name="rePassword"><br>
+	First Name:<br>
+	<input type ="text" name="FirstName"><br>
+	Last Name:<br>
+	<input type = "text" name="LastName"><br>
+	Age:<br>
+	<input type = "text" name = "age"><br>
+	<br><input type="submit" value="Create" href="/home"></ >
+   </script>
+ 
+  
   
   
   </body>

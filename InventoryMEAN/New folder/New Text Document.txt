@@ -1,0 +1,1 @@
+http://www.sitepoint.com/local-authentication-using-passport-node-js/
