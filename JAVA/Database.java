@@ -1,12 +1,27 @@
+/*=============================================================================
+ |   Assignment:  My Beauty Application
+ |       Author:  Roland Abrahantes
+ |       Grader:  Dr. Gunay ITEC 3860
+ |
+ |       Course:  ITEC 3860
+ |   Instructor:  Dr. Gunay
+ |     Due Date:  3/14/2016
+ |
+ |  Description:  Orginize beauty products in a database.
+ |
+ |     Language:  JAVA and SQL
+ | Ex. Packages:  JAVAFX
+ |                                
+ *===========================================================================*/
+
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-
 import javax.sql.rowset.JdbcRowSet;
 import javax.sql.rowset.RowSetProvider;
 
@@ -17,20 +32,15 @@ public class Database {
      Statement stmt = null;
      Statement stmt2 = null;
      Statement stmt3 = null;
-   //  static String username;
-   //  static String password;
      ResultSet rs = null;
      Alert alert; 
      Alert alert1;
      Alert alert2;
      String createdOk = "no";
-//    String name;
-     
-    
 
-	 String sql = "SELECT * FROM STUDENT";
+     String sql = "SELECT * FROM STUDENT";
      String sql2 = "INSERT INTO BOOKSTORE(bookstoreID, name, address, city, state)" + "VALUES(4000301,'Books for us','134 potomac', 'Atlanta', 'GA')";
-     String sql3 = "INSERT INTO BOOKSTORE(bookstoreID, name, address, city, state)" + "VALUES(4000311,'Books for us','CRAXY STREET ', 'Atlanta', 'GA')";	
+     String sql3 = "INSERT INTO BOOKSTORE(bookstoreID, name, address, city, state)" + "VALUES(4000311,'Books for us','Something Street ', 'Atlanta', 'GA')";	
 	
 	public Database(){
 		
@@ -60,13 +70,6 @@ public class Database {
             stmt2 = con.createStatement();
             rs = stmt.executeQuery(sql);
             
-            //    stmt2.executeQuery(sql2);
-         //   while(rs.next()) {
-        //        System.out.print(rs.getInt(1) + "\t");
-            //    System.out.print(rs.getInt(2) + "\t");
-         //       System.out.println(rs.getString(2) + "\t\t");
-         //       System.out.println(rs.getString(3));
-         //   }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -197,31 +200,6 @@ public class Database {
 		
 		   
 	   }
-	
-/*	
-	   public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-	
-	    public static String getUsername() {
-		return username;
-	}
-
-	public static void setUsername(String username) {
-		Database.username = username;
-	}
-
-	public static String getPassword() {
-		return password;
-	}
-
-	public static void setPassword(String password) {
-		Database.password = password;
-	}*/
 
 		public String getCreatedOk() {
 			return createdOk;
