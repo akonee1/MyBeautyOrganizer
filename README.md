@@ -7,3 +7,6 @@ It appears as if our original plan is not relevant anymore. Looks like we are us
 
 
 Process Tool:  Pivotal Tracker
+
+Instructions on how to use this product, along with a link to a survey and a copy of our presentation can be found at the following link.
+https://ggc.view.usg.edu/d2l/le/1026766/discussions/threads/4188056/View
