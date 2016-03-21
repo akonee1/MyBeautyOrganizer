@@ -1,3 +1,14 @@
+@author Laura Arevalo March 20, 2016
+ * @version 2.0 Course : ITEC 3160, Spring, 2016 Written: March 20, 2016
+ * 
+ * 
+ *          The first scene of the app that provides the login fields.
+ *
+
+
+
+
+
 import javafx.application.Application;
 
 import javafx.geometry.Insets;
