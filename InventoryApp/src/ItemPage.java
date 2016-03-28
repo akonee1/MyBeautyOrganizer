@@ -1,3 +1,19 @@
+/*=============================================================================
+ |   Assignment:  My Beauty Application
+ |       Author:  Parth Patel, Abubakar, Kone, Laura Arevalo, Roland Abrahantes 
+ |       Grader:  Dr. Gunay ITEC 3860
+ |
+ |       Course:  ITEC 3860
+ |   Instructor:  Dr. Gunay
+ |     Due Date:  3/29/2016
+ |
+ |  Description:  This classs adds new products into the database
+ |
+ |     Language:  JAVA and SQL
+ | Ex. Packages:  JAVAFX
+ |                                
+ *===========================================================================*/
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;

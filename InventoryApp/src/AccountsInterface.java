@@ -1,3 +1,21 @@
+/*=============================================================================
+ |   Assignment:  My Beauty Application
+ |       Author:  Roland Abrahantes, Laura Arevalo
+ |       Grader:  Dr. Gunay ITEC 3860
+ |
+ |       Course:  ITEC 3860
+ |   Instructor:  Dr. Gunay
+ |     Due Date:  3/14/2016
+ |
+ |  Description:  Class is the main interface to the application.
+ |
+ |     Language:  JAVA and SQL
+ | Ex. Packages:  JAVAFX
+ |                                
+ *===========================================================================*/
+
+
+
  import java.awt.event.ActionListener;
 
 import javafx.application.Application;
