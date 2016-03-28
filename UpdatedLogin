@@ -1,0 +1,187 @@
+import javafx.application.Application;
+
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Popup;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
+
+
+public class Login extends Application{
+
+	Scene scene,scene2,scene3,scene4;
+	String userNameText;
+	String userNamePassword;
+	Stage theStage;
+	//Scene sceneThree;
+
+	TextField userID;
+	TextField userPass;
+	PasswordField userPasswordField;
+	ItemPage ha = new ItemPage(this);
+	final double MAX_VALUE = 180;
+
+	CreateAccount accountPage = new CreateAccount(this);
+	AccountsInterface InventoryPage;// = new AccountsInterface(this);
+
+	Database data;
+
+	public void start(Stage primaryStage) throws Exception {
+
+
+		theStage = primaryStage;
+		scene2 = new Scene(accountPage,1200,800);
+		scene4 = new Scene(ha,1200,800);
+
+		ImageView icon = new ImageView(new Image(getClass().getResourceAsStream("/res/beauty.png"),300,300,true,true));
+
+		Popup pop = new Popup();
+		pop.setX(400); 
+		pop.setY(600); 
+		VBox popPane = new VBox(10);
+		popPane.setSpacing(2);
+		popPane.setAlignment(Pos.CENTER);
+		Button popButton = new Button("Acknowlege");
+		Text popText = new Text(0, 10, "The Password or username you have entered is incorrect");
+		popText.setFont(Font.font("Courier", FontWeight.BOLD,FontPosture.ITALIC, 15));  
+		popText.setFill(Color.BLACK);
+		popText.setUnderline(true);
+		popPane.getChildren().addAll(popText,popButton);
+		pop.getContent().addAll(popPane); 
+
+		Button btnLogin = new Button("Login");
+		btnLogin.setTextFill(Color.PURPLE);
+		btnLogin.setFont(new Font("Harrington", 30));
+		btnLogin.setMaxWidth(400);
+		
+
+		Button btnCreateAccount = new Button("Create Account");
+		btnCreateAccount.setTextFill(Color.PURPLE);
+		btnCreateAccount.setFont(new Font("Harrington", 30));;
+		btnCreateAccount.setMaxWidth(400);
+		
+		
+		
+		
+		userID = new TextField();
+		userID.setFont(new Font("Harrington",20));
+		userID.setStyle("-fx-text-inner-color: PURPLE;");
+		
+		userPass = new TextField();
+		userPass.setFont(new Font("Harrington",20));
+		userPass.setStyle("-fx-text-inner-color: PURPLE;");
+		
+		userPasswordField = new PasswordField();
+
+		
+		
+
+
+		Label userName = new Label("Username");
+		userName.setTextFill(Color.PURPLE);
+		userName.setFont(new Font("Harrington", 30));
+		
+		Label passWord = new Label("Password");
+		passWord.setTextFill(Color.PURPLE);
+		passWord.setFont(new Font("Harrington", 30));
+		
+		
+		//Create the Header Box.
+		HBox hBox = new HBox(10);
+		hBox.setMinWidth(400);
+		hBox.setMinHeight(100);
+		hBox.setPadding(new Insets(30,30,30,30));  // new padding created add to all classes
+		hBox.setSpacing(1);
+		hBox.setAlignment(Pos.TOP_CENTER);
+		hBox.getChildren().add(icon);
+
+
+		//Create Main Panel
+      
+		GridPane grid = new GridPane();
+        grid.setAlignment(Pos.TOP_CENTER);
+		grid.setPadding(new Insets(10,25,25,25));
+		grid.setVgap(10);
+		grid.setHgap(10);
+		grid.add(userName, 1, 0);
+		grid.add(passWord,1,1);
+		grid.add(btnLogin,2,3);
+		grid.add(btnCreateAccount, 2, 4);
+		grid.add(userID, 2, 0);
+		grid.add(userPass, 2, 1);
+		// grid.setMargin(userID, new Insets(5, 10, 5, 10));
+		grid.add(userPasswordField,2,1);
+		BorderPane borders = new BorderPane();
+		borders.setBackground(new Background(new BackgroundFill(Color.PINK, CornerRadii.EMPTY, Insets.EMPTY)));
+		borders.setTop(hBox);
+		borders.setCenter(grid);
+		
+
+
+		data = new Database();
+
+		btnLogin.setOnAction((e) -> {
+
+			// data.login(userID.getText(),userPass.getText());
+
+			if(data.checkLogin(userID.getText(),userPasswordField.getText()) == true){
+				//bankingPage.setCurrentUser(userID.getText());
+				InventoryPage = new AccountsInterface(this,userID.getText());
+				scene3 = new Scene(InventoryPage,700,600);
+				theStage.setScene(scene3);
+			}
+
+
+		});
+
+
+		btnCreateAccount.setOnAction((e) -> {
+
+			accountPage.clearText();
+			theStage.setScene(scene2);
+
+
+		});
+
+
+
+
+		popButton.setOnAction(e -> pop.hide());
+
+
+
+		scene = new Scene(borders, 1200, 800);
+		primaryStage.setTitle("My Beauty Organizer"); // Set title
+		primaryStage.setScene(scene); // Place the scene in the stage
+		primaryStage.show();	
+
+	}
+
+
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+}
