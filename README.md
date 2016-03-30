@@ -13,6 +13,6 @@ The folder JAVA contains the individual contribution from team members
 
 The folder InventoryApp is the application at this stage with all the classes from team members integrated.
 
-The folder TestProjectJUnit contains our test case for some objects and methods.
+The folder TestProjectJUnit contains our test case for some objects and methods. 
 
 https://ggc.view.usg.edu/d2l/le/1026766/discussions/threads/4188056/View
