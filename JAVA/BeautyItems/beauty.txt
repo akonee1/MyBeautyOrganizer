@@ -1,0 +1,65 @@
+Skincare
+Genefique
+1
+1
+Lancome
+No Color
+No Color
+Serum
+Skincare
+Vissionaire
+2
+1
+Lancome
+No Color
+No Color
+Serum
+Haircare
+Color Assure Shampoo
+3
+2
+Nexxus
+No Color
+No Color
+Shampoo
+Makeup
+Nakeds 3 Palette
+4
+1
+Urban Decay
+Multi
+Multi
+Palette
+Makeup
+Nakeds 2 Palette
+5
+1
+Urban Decay
+Multi
+Multi
+Palette
+Makeup
+Bon Bons Eyeshadow Palette
+6
+1
+Too Faced
+Multi
+Multi
+Palette
+Makeup
+Definicils
+7
+3
+Lancome
+Noir
+Black
+Mascara
+Nailcare
+Nail Lacquer
+8
+1
+OPI
+Mango
+Orange
+NailPolish
+
