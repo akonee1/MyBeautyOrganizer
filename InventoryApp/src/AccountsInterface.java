@@ -1,26 +1,15 @@
-/*=============================================================================
- |   Assignment:  My Beauty Application
- |       Author:  Roland Abrahantes, Laura Arevalo
- |       Grader:  Dr. Gunay ITEC 3860
- |
- |       Course:  ITEC 3860
- |   Instructor:  Dr. Gunay
- |     Due Date:  3/14/2016
- |
- |  Description:  Class is the main interface to the application.
- |
- |     Language:  JAVA and SQL
- | Ex. Packages:  JAVAFX
- |                                
- *===========================================================================*/
-
-
-
  import java.awt.event.ActionListener;
+
+
+
+
+
+
 
 import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -29,7 +18,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -49,9 +41,14 @@ import javafx.stage.Stage;
 
 public class AccountsInterface extends BorderPane {
 
+	//This is the table code
+	 private TableView<Item> table = new TableView<Item>();
+	 
+	
 	  Login login;
 	  Button newItem = new Button("Add New Item");
 	  Button goBack = new Button("Go Back");
+	  Button trendingButton = new Button("Trending");
 	//  String currentUser;  
 	  Customer loggedUser = new Customer();
 	  Database data;
@@ -69,6 +66,55 @@ public class AccountsInterface extends BorderPane {
 		  data = new Database();
 		  loggedUser = data.customerData(user);
 
+		  //tem(String id,String name,String quantity, String price, String description)
+		  
+		  final ObservableList<Item> data =
+			        (ObservableList) FXCollections.observableArrayList(
+		    new Item("1000", "Suave", "20","$40.00","This is a hair product"),
+		    new Item("1001", "Makeup", "2","$40.00","This is a product for nails"),
+		    new Item("1002", "Hair Spray", "5","$40.00"," a hair product"),
+		    new Item("1003", "Nail Polish", "15","$40.00","Description Here"),
+		    new Item("1004", "Razor", "1","$15.99","Bo Luc Lac")
+		);
+		  
+		  
+		  
+		  table.setEditable(true);
+		  
+	        TableColumn itemIDCol = new TableColumn("Item Number");
+	        itemIDCol.setMinWidth(100);
+	        itemIDCol.setCellValueFactory(
+	                new PropertyValueFactory<Item, String>("itemID"));
+	 
+	        TableColumn itemNameCol = new TableColumn("Item Name");
+	        itemNameCol.setMinWidth(100);
+	        itemNameCol.setCellValueFactory(
+	                new PropertyValueFactory<Item, String>("itemName"));
+	 
+	        TableColumn quantityCol = new TableColumn("Quantity");
+	        quantityCol.setMinWidth(100);
+	        quantityCol.setCellValueFactory(
+	                new PropertyValueFactory<Person, String>("quantity"));
+	 
+	        
+	        TableColumn priceCol = new TableColumn("Item Price");
+	        priceCol.setMinWidth(100);
+	        priceCol.setCellValueFactory(
+	                new PropertyValueFactory<Person, String>("price"));
+	        
+	        
+	        TableColumn descriptionCol = new TableColumn("Item Description");
+	        descriptionCol.setMinWidth(300);
+	        descriptionCol.setCellValueFactory(
+	                new PropertyValueFactory<Person, String>("itemDescription"));
+	        
+	        table.setItems(data);
+	        table.getColumns().addAll(itemIDCol, itemNameCol, quantityCol,priceCol,descriptionCol);
+		  
+		  
+		  
+		  
+		  
 		  
 		  Label selected = new Label("Item Selected");
 		  Button withdraw = new Button("ADD");
@@ -95,8 +141,8 @@ public class AccountsInterface extends BorderPane {
 		  text1.setFill(Color.GREEN);
 		  text1.setUnderline(true);
 		  hBox.setPadding(new Insets(30,30,30,30)); // padding added for test remove if doesnt work
-		  hBox.getChildren().add(icon);
-		  hBox.getChildren().add(text1);
+	//	  hBox.getChildren().add(icon);
+		  hBox.getChildren().add(table);
 		  // Main Panel
 		  
           GridPane grid = new GridPane();
@@ -119,13 +165,24 @@ public class AccountsInterface extends BorderPane {
 		  leftPanel.setPadding(new Insets(30));
 		  newItem.setMaxWidth(100);
 		  goBack.setMaxWidth(100);
+		  trendingButton.setMaxWidth(100);
 		  leftPanel.setSpacing(20);
 		  leftPanel.setAlignment(Pos.TOP_CENTER);
 		  leftPanel.getChildren().add(new Label("Select Option"));
-		  leftPanel.getChildren().add(theAccounts);
+		//  leftPanel.getChildren().add(theAccounts);
+		  leftPanel.getChildren().add(trendingButton);
 		  leftPanel.getChildren().add(newItem);
 		  leftPanel.getChildren().add(goBack);
 		  // all the action listeners here for the components
+		  
+		  
+		  //This is the code for the table
+		  
+		  
+		 
+		  
+		  
+		  
 		  
 		  
 		  // this is the code for the withdraw button
@@ -176,6 +233,11 @@ public class AccountsInterface extends BorderPane {
 				  login.theStage.setScene(login.scene4);
 				  
 		     });
+		     
+		     trendingButton.setOnAction((e) -> {
+				  login.theStage.setScene(login.scene5);
+				  
+		     });
 		  
 		  // this is the code for the drop down menu
        
@@ -195,18 +257,19 @@ public class AccountsInterface extends BorderPane {
 	        
 	        //bottom panel
 	        HBox bottomPane = new HBox(10);
-	        bottomPane.setMinWidth(400);
-			bottomPane.setMinHeight(100);
+	        bottomPane.setMinWidth(600);
+			bottomPane.setMinHeight(400);
 			bottomPane.setSpacing(1);
-			bottomPane.setAlignment(Pos.TOP_CENTER);
+			bottomPane.setAlignment(Pos.BOTTOM_LEFT);
+		//	bottomPane.getChildren().add(table);
 	     
 			// picture other		bottomPane.getChildren().add(icon2);
 			  
 		  setBackground(new Background(new BackgroundFill(Color.PINK, CornerRadii.EMPTY, Insets.EMPTY)));
-		  super.setTop(hBox);
-		  super.setCenter(grid);
-		  super.setLeft(leftPanel);
-	      super.setBottom(bottomPane);
+		  super.setTop(leftPanel);
+		  super.setCenter(hBox);
+	//	  super.setLeft(leftPanel);
+	//      super.setBottom(bottomPane);
 	 
 		  
 		  

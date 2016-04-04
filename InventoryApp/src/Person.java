@@ -19,6 +19,12 @@ public class Person {
 public Person(){
 	
 }
+
+Person(String fName, String lName, String email) {
+    this.firstName = fName;
+    this.lastName = lName;
+    this.email = email;
+}
    
 public String getFirstName() {
 	return firstName;

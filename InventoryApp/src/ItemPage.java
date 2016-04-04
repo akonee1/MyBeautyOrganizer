@@ -1,19 +1,3 @@
-/*=============================================================================
- |   Assignment:  My Beauty Application
- |       Author:  Parth Patel, Abubakar, Kone, Laura Arevalo, Roland Abrahantes 
- |       Grader:  Dr. Gunay ITEC 3860
- |
- |       Course:  ITEC 3860
- |   Instructor:  Dr. Gunay
- |     Due Date:  3/29/2016
- |
- |  Description:  This classs adds new products into the database
- |
- |     Language:  JAVA and SQL
- | Ex. Packages:  JAVAFX
- |                                
- *===========================================================================*/
-
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -50,19 +34,19 @@ public class ItemPage extends BorderPane{
 		Button addItem = new Button("Add Item");
         addItem.setMaxWidth(140);
 		
-		Label username = new Label("Item Number");
-		Label password = new Label("Item Description");
+		Label username = new Label("Item ID");
+		Label password = new Label("Item Name");
 		Label name = new Label("Quantity");
 		Label lastName = new Label("Price");
-		Label address = new Label("Item Name");
-		Label age = new Label("Picture");
+		Label address = new Label("Item Description");
+	//	Label age = new Label("Picture");
 
 		usernameText = new TextField();
 		passwordText = new TextField();
 		nameText = new TextField();
 		lastNameText = new TextField();
 		addressText = new TextField();
-		ageText = new TextField();
+	//	ageText = new TextField();
 
 
 
@@ -96,8 +80,8 @@ public class ItemPage extends BorderPane{
 		grid.add(lastNameText, 2, 3);
 		grid.add(address, 1, 4);
 		grid.add(addressText, 2, 4);
-		grid.add(age, 1, 5);
-		grid.add(ageText, 2, 5);
+	//	grid.add(age, 1, 5);
+	//	grid.add(ageText, 2, 5);
 		grid.add(goBack, 1, 6);
 		grid.add(addItem, 1, 7);
 
@@ -105,7 +89,7 @@ public class ItemPage extends BorderPane{
 
 		goBack.setOnAction((e) -> {
 
-			login.theStage.setScene(login.scene);
+			login.theStage.setScene(login.scene3);
 			login.userID.clear();
 			login.userPasswordField.clear();
 

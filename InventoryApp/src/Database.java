@@ -214,7 +214,21 @@ public class Database {
 		   
 	   }
 	
-/*	
+
+	   
+	   public void createItem(String Username, String Password,String Name, String lastName,String address, String age){
+		   
+	   }
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   /*	
 	   public String getName() {
 			return name;
 		}

@@ -1,11 +1,17 @@
 
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -31,7 +37,7 @@ import javafx.stage.WindowEvent;
 
 public class Login extends Application{
 
-	Scene scene,scene2,scene3,scene4;
+	Scene scene,scene2,scene3,scene4,scene5;
 	String userNameText;
 	String userNamePassword;
 	Stage theStage;
@@ -41,6 +47,7 @@ public class Login extends Application{
 	TextField userPass;
 	PasswordField userPasswordField;
 	ItemPage ha = new ItemPage(this);
+	TrendingPage trending = new TrendingPage(this);
 	final double MAX_VALUE = 180;
 
 	CreateAccount accountPage = new CreateAccount(this);
@@ -50,11 +57,31 @@ public class Login extends Application{
 
 	public void start(Stage primaryStage) throws Exception {
 
+		
+		   MenuItem menuItem = new MenuItem("Exit");
+
+	        final Menu menu = new Menu("Application");
+	        menu.getItems().add(menuItem);
+
+	        MenuBar menuBar = new MenuBar();
+	        menuBar.getMenus().add(menu);
+
+
+	        menuItem.setOnAction(new EventHandler<ActionEvent>() {
+
+	            public void handle(ActionEvent e) {
+	                Platform.exit();
+	            }
+	        });
+		
+		
+		
 
 		theStage = primaryStage;
 		scene2 = new Scene(accountPage,700,600);
 		//	  scene3 = new Scene(bankingPage,700,600);
 		scene4 = new Scene(ha,700,600);
+		scene5 = new Scene(trending,700,600);
 
 		ImageView icon = new ImageView(new Image(getClass().getResourceAsStream("/res/beauty.png"),300,300,true,true));
 
@@ -104,11 +131,13 @@ public class Login extends Application{
 		HBox hBox = new HBox(10);
 		hBox.setMinWidth(400);
 		hBox.setMinHeight(100);
-		hBox.setPadding(new Insets(30,30,30,30));  // new padding created add to all classes
-		hBox.setSpacing(1);
-		hBox.setAlignment(Pos.TOP_CENTER);
+		hBox.setPadding(new Insets(0,30,30,30));  // new padding created add to all classes
+		hBox.setSpacing(60);
+		hBox.setAlignment(Pos.TOP_RIGHT);
 		hBox.getChildren().add(icon);
-
+		hBox.getChildren().add(menuBar);
+		
+        
 
 		//Create Main Panel
 
@@ -130,7 +159,7 @@ public class Login extends Application{
 		borders.setLeft(grid);
 		borders.setBackground(new Background(new BackgroundFill(Color.PINK, CornerRadii.EMPTY, Insets.EMPTY)));
 		//	  borders.setBottom(bottomBox);
-
+      //  borders.getChildren().add(menuBar);
 
 		data = new Database();
 
