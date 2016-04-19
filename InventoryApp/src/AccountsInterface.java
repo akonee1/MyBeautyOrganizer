@@ -1,10 +1,20 @@
- import java.awt.event.ActionListener;
+/*=============================================================================
+ |   Assignment:  My Beauty Application
+ |       Author:  Roland Abrahantes
+ |       Grader:  Dr. Gunay ITEC 3860
+ |
+ |       Course:  ITEC 3860
+ |   Instructor:  Dr. Gunay
+ |     Due Date:  3/14/2016
+ |
+ |  Description:  Main Interface to out classes.
+ |
+ |     Language:  JAVA and SQL
+ | Ex. Packages:  JAVAFX
+ |                                
+ *===========================================================================*/
 
-
-
-
-
-
+import java.awt.event.ActionListener;
 
 import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
@@ -42,8 +52,8 @@ import javafx.stage.Stage;
 public class AccountsInterface extends BorderPane {
 
 	//This is the table code
-	 private TableView<Item> table = new TableView<Item>();
-	 
+	// private TableView<Item> table = new TableView<Item>();
+	private TableView<Item> table = new TableView<Item>();
 	
 	  Login login;
 	  Button newItem = new Button("Add New Item");
@@ -52,6 +62,7 @@ public class AccountsInterface extends BorderPane {
 	//  String currentUser;  
 	  Customer loggedUser = new Customer();
 	  Database data;
+	  DatabaseTable dataTable;
 	
 	  Label username = new Label("Username");
 	  Label password = new Label("Password");
@@ -65,7 +76,8 @@ public class AccountsInterface extends BorderPane {
 		  this.login = login;
 		  data = new Database();
 		  loggedUser = data.customerData(user);
-
+          dataTable = new DatabaseTable();
+          ObservableList<Item> row;
 		  //tem(String id,String name,String quantity, String price, String description)
 		  
 		  final ObservableList<Item> data =
@@ -76,42 +88,40 @@ public class AccountsInterface extends BorderPane {
 		    new Item("1003", "Nail Polish", "15","$40.00","Description Here"),
 		    new Item("1004", "Razor", "1","$15.99","Bo Luc Lac")
 		);
-		  
-		  
-		  
+		
+		  row = dataTable.buildData();
 		  table.setEditable(true);
 		  
 	        TableColumn itemIDCol = new TableColumn("Item Number");
 	        itemIDCol.setMinWidth(100);
 	        itemIDCol.setCellValueFactory(
-	                new PropertyValueFactory<Item, String>("itemID"));
+	                new PropertyValueFactory<String, String>("itemID"));
 	 
 	        TableColumn itemNameCol = new TableColumn("Item Name");
 	        itemNameCol.setMinWidth(100);
 	        itemNameCol.setCellValueFactory(
-	                new PropertyValueFactory<Item, String>("itemName"));
+	                new PropertyValueFactory<String, String>("itemName"));
 	 
 	        TableColumn quantityCol = new TableColumn("Quantity");
 	        quantityCol.setMinWidth(100);
 	        quantityCol.setCellValueFactory(
-	                new PropertyValueFactory<Person, String>("quantity"));
+	                new PropertyValueFactory<String, String>("quantity"));
 	 
 	        
 	        TableColumn priceCol = new TableColumn("Item Price");
 	        priceCol.setMinWidth(100);
 	        priceCol.setCellValueFactory(
-	                new PropertyValueFactory<Person, String>("price"));
+	                new PropertyValueFactory<String, String>("price"));
 	        
 	        
 	        TableColumn descriptionCol = new TableColumn("Item Description");
 	        descriptionCol.setMinWidth(300);
 	        descriptionCol.setCellValueFactory(
-	                new PropertyValueFactory<Person, String>("itemDescription"));
-	        
-	        table.setItems(data);
-	        table.getColumns().addAll(itemIDCol, itemNameCol, quantityCol,priceCol,descriptionCol);
+	                new PropertyValueFactory<String, String>("itemDescription"));
+	       
 		  
-		  
+	        table.setItems(row);
+	        table.getColumns().addAll(itemIDCol, itemNameCol, quantityCol,priceCol,descriptionCol); 
 		  
 		  
 		  
@@ -275,7 +285,7 @@ public class AccountsInterface extends BorderPane {
 		  
 		  
 		  
-		  
+//		  System.out.println("roland" + row);
 		  
 		  
 		  

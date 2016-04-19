@@ -24,10 +24,14 @@ public class ItemPage extends BorderPane{
 	TextField lastNameText;
 	TextField addressText;
 	TextField ageText;
+	
+	Database data;
 
 	public ItemPage(Login login){
 
 		this.login = login;
+		
+		data = new Database();
 
 		Button goBack = new Button("Go Back");
         goBack.setMaxWidth(140);
@@ -82,8 +86,8 @@ public class ItemPage extends BorderPane{
 		grid.add(addressText, 2, 4);
 	//	grid.add(age, 1, 5);
 	//	grid.add(ageText, 2, 5);
-		grid.add(goBack, 1, 6);
-		grid.add(addItem, 1, 7);
+		grid.add(goBack, 1, 7);
+		grid.add(addItem, 1, 6);
 
 
 
@@ -95,6 +99,13 @@ public class ItemPage extends BorderPane{
 
 
 		});
+		
+		addItem.setOnAction((e) -> {
+
+			 data.createItem(usernameText.getText(), passwordText.getText(), nameText.getText(), lastNameText.getText(), addressText.getText());	
+             clearText();
+
+		});
 
 
 		setBackground(new Background(new BackgroundFill(Color.PINK, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -103,4 +114,17 @@ public class ItemPage extends BorderPane{
 	}
 
 
+	
+	public void clearText(){
+		  usernameText.clear();
+		  passwordText.clear();
+		  nameText.clear();
+		  lastNameText.clear();
+		  addressText.clear();
+		  ageText.clear();
+	}
+
+
+	
+	
 }

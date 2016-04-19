@@ -39,6 +39,7 @@ public class Database {
      Alert alert; 
      Alert alert1;
      Alert alert2;
+     Alert alert3;
      String createdOk = "no";
 //    String name;
      
@@ -65,6 +66,11 @@ public class Database {
 		  alert2.setTitle("Information Dialog");
 		  alert2.setHeaderText("Error Message");
 		  alert2.setContentText("You have to enter an username in order to create an account.");
+		  
+		  alert3 = new Alert(AlertType.INFORMATION);
+		  alert3.setTitle("Information Dialog");
+		  alert3.setHeaderText("Error Message");
+		  alert3.setContentText("Item must have an item ID starting with 1001");
 		  
 		  
 		
@@ -216,8 +222,46 @@ public class Database {
 	
 
 	   
-	   public void createItem(String Username, String Password,String Name, String lastName,String address, String age){
+	   public void createItem(String productID, String productName,String quantity, String price,String productDescription){
 		   
+		   String sqlInsert = "INSERT INTO ITEM (itemID, itemName, quantity, price, itemDescription)VALUES('" + productID + "','"
+					+ productName + "','" + quantity + "','"
+					+ price + "','" + productDescription + "')";
+		   
+		   
+			
+			if(productID.equalsIgnoreCase("")){
+				alert2.showAndWait();
+			//	setCreatedOk("NoAccountCreated");
+			}else{
+
+				try {
+				
+					
+					Class.forName("oracle.jdbc.driver.OracleDriver");
+		            con = DriverManager.getConnection("jdbc:oracle:thin:DEVELOPER/developer@localhost");
+		            stmt = con.createStatement();
+		        
+		            rs = stmt.executeQuery(sqlInsert);
+					
+		            stmt.close();
+		            con.close();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+					alert.showAndWait();
+				} catch (ClassNotFoundException e){
+					e.printStackTrace();
+					alert.showAndWait();
+				}
+				finally{
+					
+				}
+		//		setCreatedOk("AccountCreated");
+			
+			}
+		   
+	   
 	   }
 	   
 	   

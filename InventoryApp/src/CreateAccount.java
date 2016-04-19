@@ -2,6 +2,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -45,13 +46,13 @@ public class CreateAccount extends BorderPane{
 		  
 		  Label username = new Label("Username");
 		  Label password = new Label("Password");
-		  Label name = new Label("Name");
+		  Label name = new Label("FirstName");
 		  Label lastName = new Label("LastName");
 		  Label address = new Label("Address");
 		  Label age = new Label("Age");
 		  
 		  usernameText = new TextField();
-		  passwordText = new TextField();
+		  passwordText = new PasswordField();
 		  nameText = new TextField();
 		  lastNameText = new TextField();
 		  addressText = new TextField();
@@ -117,11 +118,9 @@ public class CreateAccount extends BorderPane{
 				             
 				  });
 			
-			
-	}
+	    }
 	
-	
-	
+
 	
 	public void clearText(){
 		  usernameText.clear();

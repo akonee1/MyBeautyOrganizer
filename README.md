@@ -15,4 +15,10 @@ The folder InventoryApp is the application at this stage with all the classes fr
 
 The folder TestProjectJUnit contains our test case for some objects and methods. 
 
+The website for our project is https://sites.google.com/site/mboinventory/home
+
+The folder test contains our tests using mock objects and JUNIT.
+
+The folders MarketingSurveys and Business contain our Canvas as well as surveys from possible customers.
+
 https://ggc.view.usg.edu/d2l/le/1026766/discussions/threads/4188056/View

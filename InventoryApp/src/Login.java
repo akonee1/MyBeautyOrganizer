@@ -37,7 +37,7 @@ import javafx.stage.WindowEvent;
 
 public class Login extends Application{
 
-	Scene scene,scene2,scene3,scene4,scene5;
+	Scene scene,scene2,scene3,scene4,scene5,scene6;
 	String userNameText;
 	String userNamePassword;
 	Stage theStage;
@@ -48,6 +48,7 @@ public class Login extends Application{
 	PasswordField userPasswordField;
 	ItemPage ha = new ItemPage(this);
 	TrendingPage trending = new TrendingPage(this);
+	Instructions howTo = new Instructions(this);
 	final double MAX_VALUE = 180;
 
 	CreateAccount accountPage = new CreateAccount(this);
@@ -57,12 +58,13 @@ public class Login extends Application{
 
 	public void start(Stage primaryStage) throws Exception {
 
-		
+		   MenuItem details = new MenuItem("Instructions");
 		   MenuItem menuItem = new MenuItem("Exit");
 
 	        final Menu menu = new Menu("Application");
+	        menu.getItems().add(details);
 	        menu.getItems().add(menuItem);
-
+        
 	        MenuBar menuBar = new MenuBar();
 	        menuBar.getMenus().add(menu);
 
@@ -74,15 +76,20 @@ public class Login extends Application{
 	            }
 	        });
 		
-		
-		
+	        details.setOnAction((e) -> {
+
+				theStage.setScene(scene6);
+
+
+			});
+		     
 
 		theStage = primaryStage;
 		scene2 = new Scene(accountPage,700,600);
-		//	  scene3 = new Scene(bankingPage,700,600);
+		//scene3 = new Scene(howTo,700,600);
 		scene4 = new Scene(ha,700,600);
 		scene5 = new Scene(trending,700,600);
-
+		scene6 = new Scene(howTo,700,600);
 		ImageView icon = new ImageView(new Image(getClass().getResourceAsStream("/res/beauty.png"),300,300,true,true));
 
 		Popup pop = new Popup();
