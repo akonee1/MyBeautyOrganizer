@@ -24,15 +24,18 @@ public class ItemPage extends BorderPane{
 	TextField lastNameText;
 	TextField addressText;
 	TextField ageText;
+	DatabaseTable dataTable;
+	
 	
 	Database data;
 
 	public ItemPage(Login login){
 
 		this.login = login;
-		
+		 
 		data = new Database();
-
+        dataTable = new DatabaseTable();
+		
 		Button goBack = new Button("Go Back");
         goBack.setMaxWidth(140);
 		Button addItem = new Button("Add Item");
@@ -92,18 +95,19 @@ public class ItemPage extends BorderPane{
 
 
 		goBack.setOnAction((e) -> {
-
+            
+			login.InventoryPage.buildData();
 			login.theStage.setScene(login.scene3);
 			login.userID.clear();
 			login.userPasswordField.clear();
-
+	//		login.InventoryPage.buildData();
 
 		});
 		
 		addItem.setOnAction((e) -> {
 
 			 data.createItem(usernameText.getText(), passwordText.getText(), nameText.getText(), lastNameText.getText(), addressText.getText());	
-             clearText();
+			 clearText();
 
 		});
 

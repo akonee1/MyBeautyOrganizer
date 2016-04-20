@@ -70,14 +70,15 @@ public class AccountsInterface extends BorderPane {
 	  Label lastName = new Label("LastName");
 	  Label address = new Label("Address");
 	  Label age = new Label("Age");
-	
+	  ObservableList<Item> row;
+	  
 	AccountsInterface(Login login, String user){
 		
 		  this.login = login;
 		  data = new Database();
 		  loggedUser = data.customerData(user);
           dataTable = new DatabaseTable();
-          ObservableList<Item> row;
+     //     ObservableList<Item> row;
 		  //tem(String id,String name,String quantity, String price, String description)
 		  
 		  final ObservableList<Item> data =
@@ -375,7 +376,7 @@ public class AccountsInterface extends BorderPane {
 
 
 
-
+   
 
 
 
@@ -389,5 +390,9 @@ public class AccountsInterface extends BorderPane {
 	}
 
 
+    public void buildData(){
+    	row = dataTable.buildData();
+    	table.setItems(row);
+    }
 
 }

@@ -15,10 +15,13 @@ import javafx.scene.paint.Color;
 public class TrendingPage extends BorderPane {
 
 	Login login;
+	DatabasePieChart pieChart;
+	ObservableList<PieChart.Data> pieChartData;
 	
 	public TrendingPage(Login login){
 		
 		this.login = login;
+	     pieChart = new DatabasePieChart();
 		
 		Button goBack = new Button("Go Back");
         goBack.setMaxWidth(140);
@@ -31,14 +34,15 @@ public class TrendingPage extends BorderPane {
 		hBox.setPadding(new Insets(30,30,30,30));
 		hBox.getChildren().add(goBack); 
         
+		pieChartData = pieChart.getPieData();
 		
-		 ObservableList<PieChart.Data> pieChartData =
-	                FXCollections.observableArrayList(
-	                new PieChart.Data("Hair Products", 13),
-	                new PieChart.Data("Makeup", 25),
-	                new PieChart.Data("Lipstick", 10),
-	                new PieChart.Data("Conditioner", 22),
-	                new PieChart.Data("By Brand", 30));
+	//	 ObservableList<PieChart.Data> pieChartData =
+	 //               FXCollections.observableArrayList(
+	 //               new PieChart.Data("Hair Products", 13),
+	 //               new PieChart.Data("Makeup", 25),
+	  //              new PieChart.Data("Lipstick", 10),
+	  //              new PieChart.Data("Conditioner", 22),
+	  //              new PieChart.Data("By Brand", 30));
 	        final PieChart chart = new PieChart(pieChartData);
 	        chart.setTitle("Beauty Items");
 		

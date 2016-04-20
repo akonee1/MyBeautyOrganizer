@@ -1,20 +1,3 @@
-/*=============================================================================
- |   Assignment:  My Beauty Application
- |       Author:  Roland Abrahantes
- |       Grader:  Dr. Gunay ITEC 3860
- |
- |       Course:  ITEC 3860
- |   Instructor:  Dr. Gunay
- |     Due Date:  3/14/2016
- |
- |  Description:  Orginize beauty products in a database.
- |
- |     Language:  JAVA and SQL
- | Ex. Packages:  JAVAFX
- |                                
- *===========================================================================*/
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
